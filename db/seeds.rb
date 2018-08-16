@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Cleaning database...'
+Cocktail.destroy_all
+
+
+list = open("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list").read
+ingredients = JSON.parse(list).values.first
+ingredient = ingredients.map do |i|
+  { 'name' => i['strIngredient1'] }
+end
+
+Ingredient.create(ingredient)
+
+puts 'Finished!'
