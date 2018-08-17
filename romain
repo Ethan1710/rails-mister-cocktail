@@ -1,0 +1,23 @@
+# we want to add a photo attribute on a cocktail table
+
+# 1 - create the migration
+# rails g migration AddPhotoToCocktails   (in terminal)
+# add_column :cocktails, :photo, :string   (add manually in migration)
+# rails db:migrate  (in terminal)
+
+# 2 - create the uploader class (gem carrierwave)
+# rails g uploader PhotoUploader
+# inherites from CarrierWave::Uploader::Base
+# include Cloudinary::CarrierWave
+
+# 3 - make the photo attribute an uploader
+# class Cocktail < ApplicationRecord
+#   mount_uploader :photo, PhotoUploader
+
+# 4 - add photo + photo_cache input to form
+# view => f.input :photo
+#         f.input :photo_cache
+
+# 5 - display image
+# cl_image_tag(@cocktail.photo)
+# change strong params!
