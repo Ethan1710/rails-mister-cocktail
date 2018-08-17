@@ -1,6 +1,6 @@
-<h2> <%= @cocktail.name %></h2>
+<h2> cocktail: <%= @cocktail.name.capitalize %></h2>
 
-<h3>Doses</h3>
+<h3>ingredients and doses needed to make a <strong> <%= @cocktail.name.capitalize %>:</strong></h3>
 <ul class="list-group">
 <% @cocktail.doses.each do |d| %>
   <li class="list-group-item"><%= d.ingredient.name %>: <%= d.description %>
