@@ -1,15 +1,34 @@
 <h2> cocktail: <%= @cocktail.name.capitalize %></h2>
 
 <h3>ingredients and doses needed to make a <strong> <%= @cocktail.name.capitalize %>:</strong></h3>
-<ul class="list-group">
-<% @cocktail.doses.each do |d| %>
-  <li class="list-group-item"><%= d.ingredient.name %>: <%= d.description %>
-    <%= link_to cocktail_dose_path(@cocktail, d), method: :delete do %>
+<!-- <ul class="list-group"> -->
+<%# @cocktail.doses.each do |d| %>
+ <!--  <li class="list-group-item"><%#= d.ingredient.name %>: <%#= d.description %>
+    <%#= link_to cocktail_dose_path(@cocktail, d), method: :delete do %>
       <i class="fas fa-trash-alt"></i>
-    <% end %>
-</li>
-<% end %>
-</ul>
+    <%# end %>
+</li> -->
+<%# end %>
+<!-- </ul> -->
+<table>
+ <tr>
+   <th>
+     Ingredient
+   </th>
+   <th>
+     Dose
+   </th>
+
+ </tr>
+ <% @cocktail.doses.each do |d| %>
+ <tr>
+   <td><%= d.ingredient.name %></td>
+   <td><%= d.description %><%= link_to cocktail_dose_path(@cocktail, d), class: "delete", method: :delete do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %></td>
+ </tr>
+ <% end %>
+</table>
 
 
 <br>
