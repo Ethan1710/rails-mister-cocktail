@@ -21,3 +21,7 @@
 # 5 - display image
 # cl_image_tag(@cocktail.photo)
 # change strong params!
+
+
+
+# add in terminal: heroku config:set CLOUDINARY_URL=cloudinary://731649337317816:KSvpQLPkJsJGtQSZccYhk_QCh2g@dqqnw2frr
