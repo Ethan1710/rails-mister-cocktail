@@ -12,11 +12,19 @@
     <% @cocktails.each do |c| %>
     <div class="col-xs-12 col-sm-4">
       <%= link_to cocktail_path(c) do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= c.photo %>');">
-          <div class="card-category"><%= c.name.capitalize%></div>
-          <div class="card-description">
+        <% if c.photo.url.nil? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'cocktail.jpg' %>);">
+            <div class="card-category"><%= c.name.capitalize%></div>
+            <div class="card-description">
+            </div>
           </div>
-        </div>
+        <% else %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= c.photo %>');">
+            <div class="card-category"><%= c.name.capitalize%></div>
+            <div class="card-description">
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <% end %>
